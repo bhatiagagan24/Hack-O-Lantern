@@ -1,0 +1,4 @@
+Thinking of using: - 
+1. CockroachDB
+2. GoDaddy Registry
+3. Linode / Google Cloud
