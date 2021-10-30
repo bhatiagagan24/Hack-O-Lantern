@@ -10,4 +10,4 @@ import Candyhomenav from "../components/candyhomenav.svelte";
     @tailwind base;
     @tailwind components;
     @tailwind utilities; 
-</style>
+    </style>

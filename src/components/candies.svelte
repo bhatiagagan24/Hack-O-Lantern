@@ -1,30 +1,38 @@
 <script>
     export let candies;
-    console.log(candies);
+    console.log("candy length", candies.length);
 
+    import Thankyouform from "./thankyouform.svelte";
+
+    var show_popup = false;
 
 </script>
 
 <style>
-    /* .yo {
-        margin-left: 200px;
-    } */
+    main {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
 </style>
 
 
 
-
-<div class="text-center align-middle border-2 py-5">
-{#each candies as candy}
+<main>
+<div class=" text-center align-middle border-2 py-5">
+{#each candies as candy, i}
 <em><strong>
 {candy}
 </strong>
 </em>
 <br>
-{/each}
 <br>
-<button>Delete</button> <br>
-<button>Send Regards </button><br>
-<button>Add more Recepients</button>
+{/each}
+<button style="color:aliceblue; background-color: black;" on:click={() => {show_popup = show_popup ^ true;}}>Send Regards </button><br>
 </div>
 
+
+{#if show_popup == true}
+<Thankyouform></Thankyouform>
+{/if}
+
+</main>

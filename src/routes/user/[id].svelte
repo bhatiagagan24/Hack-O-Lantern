@@ -88,7 +88,7 @@
     let flavour = "";
 
 
-    import NewCandy from '../../components/new_candy.svelte';
+    // import NewCandy from '../../components/new_candy.svelte';
 
 </script>
 
@@ -102,21 +102,12 @@
 {/each}
 </div>
 <div>
-<form>
-    <input type="text" bind:value={given_by} />
-    <input type="text" bind:value={candy_name} />
-    <input type="text" bind:value={flavour} />
-    <button on:click={add_candy}> Submit</button>
+    <div class="text-center">
+<form style="color:black;" class="py-10 border-2">
+    <input type="text" bind:value={candy_name} class="border-2" placeholder="color"/>
+    <input type="text" bind:value={given_by} class="border-2" placeholder="given by"/>
+    <input type="text" bind:value={flavour} class="border-2" placeholder="flavour"/>
+    <button on:click={add_candy} class="border-2"> Submit</button>
 </form>
 </div>
-
-<!-- <NewCandy user={user} /> -->
-
-<!-- // () => {
-    // user["userdata"].push({
-    //     "flavour": flavour,
-    //     "name": candy_name,
-    //     "givenby": given_by,
-
-    // });
-    // user = user; -->
+</div>
