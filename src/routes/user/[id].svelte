@@ -59,7 +59,7 @@
 
     import { userDetails } from "../../stores/user.js";
 
-import Candies from "../../components/candies.svelte";
+    import Candies from "../../components/candies.svelte";
 
     const userEmail = $userDetails["email"];
     const isLoggedin = $userDetails["loggedin"];
@@ -76,16 +76,19 @@ import Candies from "../../components/candies.svelte";
     console.log(user["email"]);
     console.log(user["userdata"][0]["flavour"]); 
 
-    let user_candy_list = [];
 
-    user["userdata"].forEach(()=> {
-        user_candy_list.push(user["userdata"]["name"]);
-    })
+    export async function add_candy() {
+        let uri = `http://192.168.1.10:5000/add/candy?name=${candy_name}&flavour=${flavour}&given=${given_by}`
+        const res1 = fetch(uri).then(response => response.json()).then(data => console.log(data));
+    }
 
-    console.log("user_candy_list -> ", user_candy_list);
 
-    var json_resp_length = user["userdata"].length;
-    console.log(json_resp_length);
+    let given_by = "";
+    let candy_name = "";
+    let flavour = "";
+
+
+    import NewCandy from '../../components/new_candy.svelte';
 
 </script>
 
@@ -98,7 +101,22 @@ import Candies from "../../components/candies.svelte";
 <Candies candies={[user_candy["name"], ...user_candy["givenby"]]} />
 {/each}
 </div>
-
-<div class="align-middle justify-center text-center py-10">
-    <button style="color:white; background-color:black; width:10em" class="rounded-md hover:shadow-md">New Candy</button>
+<div>
+<form>
+    <input type="text" bind:value={given_by} />
+    <input type="text" bind:value={candy_name} />
+    <input type="text" bind:value={flavour} />
+    <button on:click={add_candy}> Submit</button>
+</form>
 </div>
+
+<!-- <NewCandy user={user} /> -->
+
+<!-- // () => {
+    // user["userdata"].push({
+    //     "flavour": flavour,
+    //     "name": candy_name,
+    //     "givenby": given_by,
+
+    // });
+    // user = user; -->

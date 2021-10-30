@@ -2,6 +2,7 @@
     export let candies;
     console.log(candies);
 
+
 </script>
 
 <style>
@@ -22,8 +23,8 @@
 <br>
 {/each}
 <br>
-Delete <br>
-Send Regards <br>
-Add more Recepients
+<button>Delete</button> <br>
+<button>Send Regards </button><br>
+<button>Add more Recepients</button>
 </div>
 
