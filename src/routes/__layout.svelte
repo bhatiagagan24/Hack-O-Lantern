@@ -1,3 +1,8 @@
+<script>
+import Candyhomenav from "../components/candyhomenav.svelte";
+</script>
+
+<Candyhomenav></Candyhomenav>
 
 <slot></slot>
 
