@@ -1,5 +1,7 @@
 <script>
 import { userDetails } from "../stores/user.js";
+import { goto } from "$app/navigation";
+
 const checkingData = $userDetails;
 console.log("Checking Data -> ", checkingData)
 
@@ -8,15 +10,20 @@ console.log("Checking Data -> ", checkingData)
 let passcode = [];
 var email = "";
 var current_email = "yo";
-var otp_recieved;
+var otp_recieved = 1;
 
 // function to generate OTP
-function generateOtp(email) {
-    if(email === "") {
-     // make a request to the API for generating an OTP. That OTP is recieved here and stored inside a variable which will be 
-     // further used for verifying the the user.
+async function generateOtp(){
+    if(!!email) {
+     const url = "http://192.168.1.10:5000/verify?email=" + email; 
+     console.log(url);
+     const otp_resp = await fetch(url).then(response => response.json()).then(data => otp_recieved = data.toString());
+     console.log("otp_recieved -> ", otp_recieved);
+    } else {
+        // Throw Error if email empty
+        console.log("email cannot be empty")
     }
-};
+    };
 
 function verifyTheOtp() {
     var inputOtp = "";
@@ -24,14 +31,17 @@ function verifyTheOtp() {
         inputOtp += passcode[i];
     }
     if(otp_recieved === inputOtp) {
-        // move to next page and also write to the writable userDetails the detail of the user -> 
-        // {
-            // "loggedin": true,
-            // "email": email,
-        // }
-        // loggedin will be used to verify the signin and email will be used to fetch the data from the API
+        console.log("Otp verification Successful")
+        $userDetails = {
+            "email": email,
+            "loggedin": true,
+        }
+        console.log(JSON.stringify($userDetails));
+        var user_route = "/user/" + email;
+        goto(user_route);
     } else {
         // prompt wrong OTP here
+        console.log("OTP verify fail")
     }
 }
 
@@ -79,10 +89,10 @@ button {
 <div class="flex flex-col align-middle justify-center text-center">
     Enter Your Email here
     <input type="email" class="email" bind:value={email}/>
-    <button on:click="{() => {generateOtp(email)}}">Generate OTP</button>
+    <button on:click="{generateOtp}">Generate OTP</button>
 </div>
 
-
+{otp_recieved}
 
 
 <div class="flex flex-col align-middle align-middle justify-center text-center">
