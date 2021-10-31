@@ -122,10 +122,10 @@ main {
 {email} -->
 
 
-<div class="flex flex-col align-middle justify-center text-center">
-    <h1 style="color: white;" class="text-xl">Enter Your Email</h1>
-    <input type="email" class="email" bind:value={email}/>
-    <button on:click="{generateOtp}">Generate OTP</button>
+<div class="flex flex-col align-middle items-center justify-center text-center">
+    <h1 style="color: white;" class="text-xl font-bold m-4">Enter Your Email</h1>
+    <input type="email" class="email w-72 rounded-full  font-bold py-2 px-5 m-5 " bind:value={email}/>
+    <button class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full" on:click="{generateOtp}">Generate OTP</button>
 </div>
 
 {otp_recieved}

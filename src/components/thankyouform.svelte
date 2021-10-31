@@ -13,14 +13,18 @@
 
 <style>
     input, textarea {
-        background-color: black;
-        color: white;
+        background-color: blanchedalmond;
+        color: black;
+        padding:10px;
+        border: 2px red solid;
+        width:30%;
+        font-weight: 500;
     }
 </style>
 
 
 <main>
-    <div class="text-center py-8 ">
+    <div class="text-center py-8">
         <form on:submit={sendThanks}>
             <input type="textbox" placeholder="Email"/> <br> <br>
             <textarea placeholder="Message"/> <br><br>
