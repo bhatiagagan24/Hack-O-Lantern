@@ -18,7 +18,7 @@
     // user details will be fetched here using a get request to the API.
     // then those will be passed down as props
     
-    const uri = `http://192.168.1.10:5000/getdata?email=${email}`
+    const uri = `https://sppoky.herokuapp.com/getdata?email=${email}`
     var candy_resp = [];
     const resp = await fetch(uri).then(response => response.json()).then(data => {
         for(var i= 0; i<data.length; i++) {
@@ -78,7 +78,7 @@
 
 
     export async function add_candy() {
-        let uri = `http://192.168.1.10:5000/add/candy?email=${user["email"]}&name=${candy_name}&given=${given_by}`
+        let uri = `https://sppoky.herokuapp.com/add/candy?email=${user["email"]}&name=${candy_name}&given=${given_by}`
         const res1 = fetch(uri).then(response => response.json()).then(data => console.log(data));
     }
 
@@ -96,7 +96,7 @@
 <!-- {typeof(user)} -->
 
 
-<div class="grid gap-4 md:grid-cols-2 grid-cols-1 align-middle justify-centre">
+<div class="grid gap-4 md:grid-cols-4 grid-cols-1 align-middle justify-centre">
 {#each  user["userdata"] as user_candy, i}
 <!-- <br> -->
 <Candies candies={[user_candy["name"], user_candy["givenby"]]} />

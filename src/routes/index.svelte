@@ -17,7 +17,7 @@ let wrong_otp = false;
 // function to generate OTP
 async function generateOtp(){
     if(!!email) {
-     const url = "http://192.168.1.10:5000/verify?email=" + email; 
+     const url = "https://sppoky.herokuapp.com/verify?email=" + email; 
      console.log(url);
      const otp_resp = await fetch(url).then(response => response.json()).then(data => otp_recieved = data.toString());
      console.log("otp_recieved -> ", otp_recieved);

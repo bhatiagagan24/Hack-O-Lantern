@@ -12,9 +12,9 @@
         show_regard_flag = 0;
     }
 
-    const gifs = ["https://media.giphy.com/media/t2uEYBdHWXEkqx9M9n/giphy.gif", "https://media.giphy.com/media/QuxqWk7m9ffxyfoa0a/giphy.gif", "https://media.giphy.com/media/h2CfczI1ggcspHZ26z/giphy.gif","https://media.giphy.com/media/h8OX1iXpgYoH1wIkHE/giphy.gif"];
+    const gifs = ["https://media.giphy.com/media/t2uEYBdHWXEkqx9M9n/giphy.gif", "https://media.giphy.com/media/YrriQHHfEdH5M7oXeQ/giphy.gif","https://media.giphy.com/media/h8OX1iXpgYoH1wIkHE/giphy.gif"];
     const totalGif = gifs.length;
-    const curGif = 3;
+    const curGif = Math.floor(Math.random() * totalGif);
 </script>
 
 <style>
@@ -27,7 +27,8 @@
 
 
 <main>
-<div class="w-64 bg-gray-300	text-center align-middle border-4 p-5 m-5">
+
+<div class="w-64 bg-gray-300 text-center align-middle border-4 p-5 m-5">
 {#each candies as candy, i}
         <p class="text-xl text-red-500 font-bold">
             {candy}
