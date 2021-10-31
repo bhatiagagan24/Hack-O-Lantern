@@ -114,7 +114,7 @@ button {
     height: auto;
 }
 main {
-    background-color: black;
+    background-color: rgb(14, 13, 13);
     height: 100%;
     width: 100%;
     margin: 0;
@@ -134,13 +134,13 @@ main {
 <!-- {passcode}
 {email} -->
 
-<div class="flex flex-row align-middle items-center justify-center m-5 sm:h-1/6">
+<div class="flex flex-row align-middle items-center justify-center m-5 ">
 <img src={background_url} />
 </div>
 
 <div class="flex flex-col align-middle items-center justify-center text-center">
 
-    <input type="email" class="email w-72 rounded-full  font-bold py-2 px-5 m-5 " bind:value={email}/>
+    <input type="email" class="email w-72 rounded-full  font-bold py-2 px-5 m-5 " bind:value={email} placeholder="Enter your Email"/>
     <button class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full" on:click="{generateOtp}">Generate OTP</button>
 </div>
 
