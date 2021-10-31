@@ -1,5 +1,7 @@
-# Hack-O-Lantern
-Project for Hack-O-Lantern
+## Hack-O-Lantern
+**Treaty Regards**
 
-
-Web app built using Svelte
+Used sveltekit along with tailwind on the frontend.
+Integrated Twilio API to send login OTP and thank-you emails. 
+Used Python(Flask) on the backend. 
+Used SQLite Database.
