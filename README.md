@@ -1,7 +1,7 @@
 ## Hack-O-Lantern
 **Treaty Regards**
 
-*Used sveltekit along with tailwind on the frontend.
-*Integrated Twilio API to send login OTP and thank-you emails. 
-*Used Python(Flask) on the backend. 
-*Used SQLite Database.
+1. Used sveltekit along with tailwind on the frontend.
+2. Integrated Twilio API to send login OTP and thank-you emails. 
+3. Used Python(Flask) on the backend. 
+4. Used SQLite Database.
