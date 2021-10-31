@@ -104,11 +104,13 @@
 </div>
 <div>
     <div class="text-center">
-<form style="color:black;" class="py-10 border-2">
-    <input type="text" bind:value={candy_name} class="border-2" placeholder="color"/>
-    <input type="text" bind:value={given_by} class="border-2" placeholder="given by"/>
-    <!-- <input type="text" bind:value={flavour} class="border-2" placeholder="flavour"/> -->
-    <button on:click={add_candy} class="border-2"> Submit</button>
-</form>
-</div>
+
+        <form style="color:black;" class="flex flex-col items-center justicy-center py-10 border-2">
+            <input type="text" bind:value={candy_name} class="border-2 m-5 p-3 font-bold" placeholder="Color"/>
+            <input type="text" bind:value={given_by} class="border-2 m-5 p-3 font-bold" placeholder="Given by"/>
+            <!-- <input type="text" bind:value={flavour} class="border-2" placeholder="flavour"/> -->
+            <button  class="bg-transparent hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded" on:click={add_candy}> Submit</button>
+        </form>
+
+    </div>
 </div>
