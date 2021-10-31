@@ -74,18 +74,19 @@
     console.log(typeof(user));
     console.log(user);  
     console.log(user["email"]);
-    console.log(user["userdata"][0]["flavour"]); 
+    // console.log(user["userdata"][0]["flavour"]); 
 
 
     export async function add_candy() {
-        let uri = `http://192.168.1.10:5000/add/candy?name=${candy_name}&flavour=${flavour}&given=${given_by}`
+        let uri = `http://192.168.1.10:5000/add/candy?email=${user["email"]}&name=${candy_name}&given=${given_by}`
         const res1 = fetch(uri).then(response => response.json()).then(data => console.log(data));
     }
 
 
     let given_by = "";
     let candy_name = "";
-    let flavour = "";
+    // let flavour = "";
+
 
 
     // import NewCandy from '../../components/new_candy.svelte';
@@ -98,7 +99,7 @@
 <div class="grid gap-4 md:grid-cols-2 grid-cols-1 align-middle justify-centre">
 {#each  user["userdata"] as user_candy, i}
 <!-- <br> -->
-<Candies candies={[user_candy["name"], ...user_candy["givenby"]]} />
+<Candies candies={[user_candy["name"], user_candy["givenby"]]} />
 {/each}
 </div>
 <div>
@@ -106,7 +107,7 @@
 <form style="color:black;" class="py-10 border-2">
     <input type="text" bind:value={candy_name} class="border-2" placeholder="color"/>
     <input type="text" bind:value={given_by} class="border-2" placeholder="given by"/>
-    <input type="text" bind:value={flavour} class="border-2" placeholder="flavour"/>
+    <!-- <input type="text" bind:value={flavour} class="border-2" placeholder="flavour"/> -->
     <button on:click={add_candy} class="border-2"> Submit</button>
 </form>
 </div>

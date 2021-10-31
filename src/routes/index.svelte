@@ -115,7 +115,7 @@ main {
 
 </style>
 
-{#if wrong_otp === true}
+{#if wrong_otp === false}
 
 <main style="background-image: ${background_url};">
 <!-- {passcode}
@@ -168,7 +168,7 @@ main {
 {/if}
 
 
-{#if wrong_otp === false}
+{#if wrong_otp === true}
 <!-- svelte-ignore a11y-missing-attribute -->
 <div class="text-xl text-center">
 <img src= "https://media.giphy.com/avatars/christianwhite/eLlCBMGqniDh.gif" style="height:50vh; width:30%; margin-left: 35%; margin-right: 35%;" >

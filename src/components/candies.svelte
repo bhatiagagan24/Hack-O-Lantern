@@ -6,6 +6,12 @@
 
     var show_popup = false;
 
+    let show_regard_flag = 1;
+
+    if(candies[2] === "Add first Candy Name") {
+        show_regard_flag = 0;
+    }
+
 </script>
 
 <style>
@@ -27,7 +33,9 @@
 <br>
 <br>
 {/each}
+<!-- {#if show_regard_flag === 1} -->
 <button style="color:aliceblue; background-color: black;" on:click={() => {show_popup = show_popup ^ true;}}>Send Regards </button><br>
+<!-- {/if} -->
 </div>
 
 

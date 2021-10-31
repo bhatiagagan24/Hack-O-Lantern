@@ -5,7 +5,7 @@
     // Make API request to send email to these people
 
     async function sendThanks() {
-        console.log("Thanked")
+        const form_resp = await fetch("http://192.168.1.10:5000/test").then(response => response.json()).then(data => console.log(data))
     }
 
 </script>
