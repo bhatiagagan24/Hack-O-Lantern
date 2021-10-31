@@ -49,7 +49,7 @@ function verifyTheOtp() {
 }
 
 
-let background_url = 'https://acegif.com/wp-content/uploads/halloween-gif-animated-81.gif';
+let background_url = 'https://media.giphy.com/media/mrntmDtLQdILS/giphy.gif';
 
 $: if(wrong_otp === true) {
     background_url = "https://media.giphy.com/avatars/christianwhite/eLlCBMGqniDh.gif";
@@ -67,6 +67,9 @@ function whichGifNow() {
 }
 
 $: setInterval(whichGifNow, 7000);
+
+import HomeImages from "../components/homeimage.svelte";
+
 
 </script>
 
@@ -120,17 +123,20 @@ main {
     margin: 0;
     /* bottom: 0; */
     position: fixed;
-    /* background-image: url('https://acegif.com/wp-content/uploads/halloween-gif-animated-81.gif'); */
+    background-image: url('https://acegif.com/wp-content/uploads/halloween-gif-animated-81.gif');
     /* background-image: url(${background_url}); */
     background-repeat: no-repeat;
     background-size: cover;
+    filter: invert(1);
 }
-
+img {
+    filter: invert(-1);
+}
 </style>
 
 {#if wrong_otp === false}
 
-<main style="background-image: url(${background_url});">
+<main>
 <!-- {passcode}
 {email} -->
 
