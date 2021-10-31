@@ -55,6 +55,19 @@ $: if(wrong_otp === true) {
     background_url = "https://media.giphy.com/avatars/christianwhite/eLlCBMGqniDh.gif";
 }
 
+
+let background_gifs = ['https://media.giphy.com/media/mrntmDtLQdILS/giphy.gif', 'https://media.giphy.com/media/17fRLuQyHvv4k/giphy.gif', 'https://media.giphy.com/media/1APcmTq0EMjNYWRuQM/giphy.gif'];
+
+
+function whichGifNow() {
+// generate random number
+    const totalGif = background_gifs.length;
+    const curGif = Math.floor(Math.random() * totalGif);
+    background_url = background_gifs[curGif];
+}
+
+$: setInterval(whichGifNow, 7000);
+
 </script>
 
 <svelte:head>
@@ -107,7 +120,7 @@ main {
     margin: 0;
     /* bottom: 0; */
     position: fixed;
-    background-image: url('https://acegif.com/wp-content/uploads/halloween-gif-animated-81.gif');
+    /* background-image: url('https://acegif.com/wp-content/uploads/halloween-gif-animated-81.gif'); */
     /* background-image: url(${background_url}); */
     background-repeat: no-repeat;
     background-size: cover;
@@ -117,24 +130,27 @@ main {
 
 {#if wrong_otp === false}
 
-<main style="background-image: ${background_url};">
+<main style="background-image: url(${background_url});">
 <!-- {passcode}
 {email} -->
 
+<div class="flex flex-row align-middle items-center justify-center m-5 sm:h-1/6">
+<img src={background_url} />
+</div>
 
 <div class="flex flex-col align-middle items-center justify-center text-center">
-    <h1 style="color: white;" class="text-xl font-bold m-4">Enter Your Email</h1>
+
     <input type="email" class="email w-72 rounded-full  font-bold py-2 px-5 m-5 " bind:value={email}/>
     <button class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 rounded-full" on:click="{generateOtp}">Generate OTP</button>
 </div>
 
-{otp_recieved}
+<!-- {otp_recieved} -->
 
 {#if otp_recieved != 1}
-
+<!-- 
 <div class="flex flex-col align-middle align-middle justify-center text-center">
     Enter Your 6 digit OTP
-</div>
+</div> -->
 <div class="flex flex-col align-middle justify-center text-box-div">
 <div class="py-2 grid gap-2 grid-cols-6 md:grid-cols-6 align-middle justify-center text-center">
     <span class="flex flex-col" >
